@@ -1,233 +1,465 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    <title>Hexo</title>
+    <meta name="author" content="John Doe">
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+    
+    <meta property="og:site_name" content="Hexo"/>
 
-  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="/css/lib/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/css/lib/furatto.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
 
+    
+        <link rel="stylesheet" href="/css/lib/prettify_raytaylorism.css" type="text/css">
+        
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/jquery.jpanelmenu.js"></script>
 </head>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+
+
+<body class="container-fluid">
+    <header id="page-header">
+        <div class="navbar inverse-navbar">
+    <div class="navbar-inner">
+        <div class="container-center">
+            <a href="/index.html" class="menu-trigger" data-meteocon="M">
+                <i class="icon-reorder"></i>
+            </a>
+            <div class="nav-collapse navbar-responsive-collapse collapse">
+                <nav id="menu">
+                    <ul class="nav">
+                        <li><a class="brand" id="blog-title" href="/index.html">Hexo</a></li>
+                    </ul>
+                    <div class="pull-right nav" id="nav-button-group">
+                        
+                            <a href="/" class="menu-home btn btn-primary btn-large">
+                                <i class="icon-home icon-white"></i>
+                                首页
+                            </a>
+                        
+                            <a href="/archives" class="menu-archive btn btn-primary btn-large">
+                                <i class="icon-archive icon-white"></i>
+                                归档
+                            </a>
+                        
+                            <a href="javascript:void(0);" class="menu-category btn btn-primary btn-large">
+                                <i class="icon-archive icon-white"></i>
+                                分类
+                            </a>
+                        
+                            <a href="/reading" class="menu-reading btn btn-primary btn-large">
+                                <i class="icon-book icon-white"></i>
+                                读书
+                            </a>
+                        
+                            <a href="/about" class="menu-about btn btn-primary btn-large">
+                                <i class="icon-user icon-white"></i>
+                                关于
+                            </a>
+                        
+                    </div>
+                </nav>
+                <nav id="jPanelMenu-menu-side">
+    <ul class="nav main-menu">
+        <li><a class="brand" href="index.html">Hexo</a></li>
         
-          <a class="main-nav-link" href="/">Home</a>
+            <li>
+                <a href="/" class="menu-home">
+                    <i class="icon-home icon-white"></i>
+                    首页
+                </a>
+            </li>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+            <li>
+                <a href="/archives" class="menu-archive">
+                    <i class="icon-archive icon-white"></i>
+                    归档
+                </a>
+            </li>
         
-      </nav>
-      <nav id="sub-nav">
+            <li>
+                <a href="javascript:void(0);" class="menu-category">
+                    <i class="icon-archive icon-white"></i>
+                    分类
+                </a>
+            </li>
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+            <li>
+                <a href="/reading" class="menu-reading">
+                    <i class="icon-book icon-white"></i>
+                    读书
+                </a>
+            </li>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-postName" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/02/02/postName/" class="article-date">
-  <time datetime="2015-02-02T01:17:08.000Z" itemprop="datePublished">Feb 2 2015</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+            <li>
+                <a href="/about" class="menu-about">
+                    <i class="icon-user icon-white"></i>
+                    关于
+                </a>
+            </li>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/02/postName/">just����</a>
-    </h1>
-  
+    </ul>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="just����">just����</h1>
-<p><a href="http://ibruce.info/2013/11/26/markdown/" target="_blank" rel="external">markdown�����﷨</a></p>
+    <ul class="nav category-menu hide">
+        <li>
+            <span><a class="brand" href="javascript:void(0);">分类目录</a></span>
+            <span><a class="btn-back brand pull-right" href="javascript:void(0);">
+                <i class="icon-arrow-left"></i>
+            </a></span>
+        </li>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/02/02/postName/" data-id="4w385an7m37e6d1z" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/30/hello-world/" class="article-date">
-  <time datetime="2015-01-30T05:58:33.000Z" itemprop="datePublished">Jan 30 2015</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/30/hello-world/">Hello World</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/01/30/hello-world/" data-id="t1guvefp8p768rmu" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
-</section>
         
-          <aside id="sidebar">
-  
-    
-  
-    
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2015/02/02/postName/">just����</a>
-          </li>
-        
-          <li>
-            <a href="/2015/01/30/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+            
 
-  
-</aside>
         
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2015 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
+    </ul>
 </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </header>
+    <div id="content-wrapper">
+        <div class="container-center">
+        <div id="article-list">
+    
+        <article>
+    <div class="row">
+        <div class="col-2 date-tags">
+            <div class="date-row">
+                <time datetime="2015-02-02T01:17:08.000Z">Feb 2 2015</time>
+            </div>
+            
+                <div class="tags-row">
+                
+                </div>
+            
+        </div>
+        <div class="col-10">
+            <div class="article-title simple-article-title">
+                
+    
+        <h1><a href="/2015/02/02/postName/">just����</a></h1>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+            </div>
+            
+        </div>
+    </div>
+    <div class="split-line"></div>
+</article>
+
+    
+        <article>
+    <div class="row">
+        <div class="col-2 date-tags">
+            <div class="date-row">
+                <time datetime="2015-01-30T05:58:33.000Z">Jan 30 2015</time>
+            </div>
+            
+                <div class="tags-row">
+                
+                </div>
+            
+        </div>
+        <div class="col-10">
+            <div class="article-title simple-article-title">
+                
+    
+        <h1><a href="/2015/01/30/hello-world/">Hello World</a></h1>
+    
+
+            </div>
+            
+        </div>
+    </div>
+    <div class="split-line"></div>
+</article>
+
+    
+</div>
+<div>
+    <a class="btn btn-funky btn-xlarge btn-block btn-loadmore" href="javascript:void(0)">点击加载更多</a>
+</div>
+
+<script>
+    (function($) {
+        //当内容区内容不够长时，设置内容区域的高度使footer沉底
+        var resizeContentWrapper = function() {
+            var contentHeight = Math.floor($('#content-wrapper .container-center').height()),
+                headerHeight = Math.floor($('#page-header').height()),
+                footerHeight = Math.floor($('#page-footer').height()),
+                minHeight = Math.floor($(window).height() - headerHeight - footerHeight);
+            if(contentHeight < minHeight) {
+                $('#content-wrapper').height(minHeight);
+            } else {
+                $('#content-wrapper').css({height: 'auto'});
+            }
+        };
+
+        //按一定数目显示博文条目
+        var pagination = function() {
+            var PER_PAGE_NUM = showNum = 6,
+                i,
+                initHeight = 0,
+                outerHeightList = [],
+                articleList = $('#content-wrapper article'),
+                articleNum = articleList.length;
+
+            for(i = 0; i < articleList.length; i++) {
+                outerHeightList.push($(articleList[i]).outerHeight());
+                if(i >= PER_PAGE_NUM) {
+                    $(articleList[i]).hide();
+                }
+            }
+
+            $('.btn-loadmore').click(function() {
+                var deltaH = 0,
+                    toShowList = [],
+                    duration = 1000;
+                for(i = showNum, showNum += PER_PAGE_NUM; i < showNum; i++) {
+                    if(i >= articleList.length) {
+                        $('.btn-loadmore').html("已经到底啦");
+                        break;
+                    }
+                    toShowList.push($(articleList[i]));
+                    deltaH += outerHeightList[i];
+                }
+                
+                //执行文章列表高度加大动画
+                $('#article-list').animate({
+                    height: "+=" + deltaH,
+                    scrollTop: "+=" + deltaH
+                }, duration, function() {
+                    //执行完毕后，每篇文章淡入动画
+                    for(i = 0; i < toShowList.length; i++) {
+                        toShowList[i].css({opacity: 0});
+                        toShowList[i].show();
+                        toShowList[i].animate({
+                            opacity: 1
+                        }, duration);
+                    }
+                    
+                });
+                //滚动条滚动动画
+                $('body, html').animate({
+                    scrollTop: "+=" + deltaH / 2
+                }, duration);
+            });
+            resizeContentWrapper();
+        };
+
+        $(document).ready(pagination);
+    })(jQuery);
+</script>
+
+<!-- 新功能导航 -->
+<div class="feature-guide-container">
+    <div class="shadow-container"></div>
+    <div class="feature-box">
+        <p class="feature-description"></p>
+        <a class="btn btn-i-know pull-right" href="javascript:void(0);">我知道了</a>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<script>
+    (function($){
+        //检测是否有新的功能，并提示用户
+        var checkNewFeature = function() {
+            //设置本地存储
+            var setStorage = 
+            (typeof window.localStorage !== 'undefined') && (typeof window.localStorage !== 'unknown') ?
+                //若支持HTML5的localStorage则使用localStorage
+                function(key, value) {
+                    window.localStorage[key] = value;
+                } : 
+                //否则使用cookie存储
+                function(key, value){
+                    var exdate = new Date(),
+                        expireDays = 15;    //cookie过期时间15天
+                    exdate.setDate(exdate.getDate() + expireDays);
+                    document.cookie = key + '=' + escape(value) + ';expires=' + exdate.toGMTString();
+                };
+            //获取本地存储
+            var getStorage = 
+            (typeof window.localStorage !== 'undefined') && (typeof window.localStorage !== 'unknown') ?
+                function(key) {
+                    return window.localStorage[key] || null;
+                } :
+                function(key) {
+                    if (document.cookie.length > 0) {
+                        var start = document.cookie.indexOf(key + '='),
+                            end;
+                        if (start !== -1) {
+                            start = start + key.length + 1;
+                            end = document.cookie.indexOf(';', start);
+                            if (end === -1) {
+                                end = document.cookie.length;
+                            }
+                            return unescape(document.cookie.substring(start, end));
+                        } else {
+                            return null;
+                        }
+                    }
+                    return null;
+                };
+
+            
+        };
+
+        $(document).ready(checkNewFeature);
+    })(jQuery);
+</script>
+
+        </div>
+    </div>
+    <footer id="page-footer"><div class="footer-content">
+    <div class="container-center">
+        <div class="footer-text pull-left">
+            <div class="copyright">
+                
+                Copyright &copy; 2015 <a href="/">John Doe</a>
+                
+            </div>
+            <div class="theme-copyright">
+                <span>Blog powered by <a href="http://zespia.tw/hexo/zh-CN/">hexo</a></span>
+                Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a> desgined by <strong>Nix</strong>
+            </div>
+        </div>
+        <div class="social-group pull-right">
+            
+            <a href="https://github.com/raytaylorlin" target="_blank" title="github"><i class="icon-github"></i></a>
+            
+            
+            <a href="http://weibo.com/1956184117" target="_blank" title="新浪微博"><i class="icon-weibo"></i></a>
+            
+            
+            <a href="http://www.renren.com/309069699" target="_blank" title="人人网"><i class="icon-renren"></i></a>
+            
+            
+            <a href="https://plus.google.com/113216251417550089742?rel=author" target="_blank" title="Google+"><i class="icon-google-plus-sign"></i></a>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+</footer>
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-43460643-1', 'raytaylorlin.com');
+    ga('send', 'pageview');
+
+</script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
+<script>
+    (function($) {
+        //当内容区内容不够长时，设置内容区域的高度使footer沉底
+        var resizeContentWrapper = function() {
+            //HACK: 用延时的方法使计算高度时候更加准确，会有一闪的情况
+            setTimeout(function() {
+                var contentHeight = Math.floor($('#content-wrapper .container-center').height()),
+                headerHeight = Math.floor($('#page-header').height()),
+                footerHeight = Math.floor($('#page-footer').height()),
+                minHeight = Math.floor($(window).height() - headerHeight - footerHeight);
+                if(contentHeight < minHeight) {
+                    $('#content-wrapper').css({height: minHeight});                    
+                } else {
+                    $('#content-wrapper').css({height: 'auto'});
+                }
+            },500);
+        };
 
+        //响应式侧边栏
+        var initJPanelMenu = function() {
+            var jPM = $.jPanelMenu({
+                menu: '#jPanelMenu-menu-side',
+                duration: 500
+            });
+            jPM.on();
+        };
 
-<script src="/js/script.js" type="text/javascript"></script>
+        //初始化目录按钮事件绑定
+        var initCategory = function() {
+            function showMainMenu() {
+                var $jPanelMenu = $('#jPanelMenu-menu');
+                $jPanelMenu.find('ul.category-menu').hide();
+                $jPanelMenu.find('ul.main-menu').fadeIn();
+            }
 
+            function showCategoryMenu() {
+                var $jPanelMenu = $('#jPanelMenu-menu');
+                $jPanelMenu.find('ul.main-menu').hide();
+                $jPanelMenu.find('ul.category-menu').fadeIn();
+            }
 
-  </div>
+            $('.menu-category').click(function() {
+                var jPM = $.jPanelMenu({
+                    duration: 500,
+                    beforeOpen: function() {
+                        showCategoryMenu();
+                    },
+                    afterClose: function() {
+                        showMainMenu();
+                    }
+                });
+                if(jPM.isOpen()) {
+                    showCategoryMenu();
+                } else {
+                    jPM.open();
+                }
+            });
+
+            $('.category-menu').on('click', '.btn-back', function() {
+                showMainMenu();
+            });
+        };
+
+        $(document).ready(resizeContentWrapper);
+        $(document).ready(initJPanelMenu);
+        $(document).ready(initCategory);
+        
+        $(window).resize(resizeContentWrapper);
+    })(jQuery);
+</script>
 </body>
 </html>
