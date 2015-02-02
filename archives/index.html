@@ -1,333 +1,236 @@
-<!DOCTYPE HTML>
-<html>
+
+  <!DOCTYPE HTML>
+<html >
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    
+  <meta charset="UTF-8">
+  
     <title>Archives | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
     <meta name="author" content="John Doe">
     
     
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/archives/">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description">
+
 
     
-    <meta property="og:site_name" content="Hexo"/>
-
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-    <link rel="stylesheet" href="/css/lib/font-awesome.css" type="text/css">
-    <link rel="stylesheet" href="/css/lib/normalize.css" type="text/css">
-    <link rel="stylesheet" href="/css/lib/furatto.css" type="text/css">
-    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
     
-        <link rel="stylesheet" href="/css/lib/prettify_raytaylorism.css" type="text/css">
-        
     
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <script src="/js/jquery-1.10.2.min.js"></script>
-    <script src="/js/jquery.jpanelmenu.js"></script>
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
 </head>
 
-
-<body class="container-fluid">
-    <header id="page-header">
-        <div class="navbar inverse-navbar">
-    <div class="navbar-inner">
-        <div class="container-center">
-            <a href="/index.html" class="menu-trigger" data-meteocon="M">
-                <i class="icon-reorder"></i>
-            </a>
-            <div class="nav-collapse navbar-responsive-collapse collapse">
-                <nav id="menu">
-                    <ul class="nav">
-                        <li><a class="brand" id="blog-title" href="/index.html">Hexo</a></li>
-                    </ul>
-                    <div class="pull-right nav" id="nav-button-group">
-                        
-                            <a href="/" class="menu-home btn btn-primary btn-large">
-                                <i class="icon-home icon-white"></i>
-                                首页
-                            </a>
-                        
-                            <a href="/archives" class="menu-archive btn btn-primary btn-large">
-                                <i class="icon-archive icon-white"></i>
-                                归档
-                            </a>
-                        
-                            <a href="javascript:void(0);" class="menu-category btn btn-primary btn-large">
-                                <i class="icon-archive icon-white"></i>
-                                分类
-                            </a>
-                        
-                            <a href="/reading" class="menu-reading btn btn-primary btn-large">
-                                <i class="icon-book icon-white"></i>
-                                读书
-                            </a>
-                        
-                            <a href="/about" class="menu-about btn btn-primary btn-large">
-                                <i class="icon-user icon-white"></i>
-                                关于
-                            </a>
-                        
-                    </div>
-                </nav>
-                <nav id="jPanelMenu-menu-side">
-    <ul class="nav main-menu">
-        <li><a class="brand" href="index.html">Hexo</a></li>
-        
-            <li>
-                <a href="/" class="menu-home">
-                    <i class="icon-home icon-white"></i>
-                    首页
-                </a>
-            </li>
-        
-            <li>
-                <a href="/archives" class="menu-archive">
-                    <i class="icon-archive icon-white"></i>
-                    归档
-                </a>
-            </li>
-        
-            <li>
-                <a href="javascript:void(0);" class="menu-category">
-                    <i class="icon-archive icon-white"></i>
-                    分类
-                </a>
-            </li>
-        
-            <li>
-                <a href="/reading" class="menu-reading">
-                    <i class="icon-book icon-white"></i>
-                    读书
-                </a>
-            </li>
-        
-            <li>
-                <a href="/about" class="menu-about">
-                    <i class="icon-user icon-white"></i>
-                    关于
-                </a>
-            </li>
-        
-    </ul>
-
-    <ul class="nav category-menu hide">
-        <li>
-            <span><a class="brand" href="javascript:void(0);">分类目录</a></span>
-            <span><a class="btn-back brand pull-right" href="javascript:void(0);">
-                <i class="icon-arrow-left"></i>
-            </a></span>
-        </li>
-
+    <body>
+      <header>
+        <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+      </header>
+      <div id="container">
         
 
-        
+<div class="archive-title" >
+  <h2 class="archive-icon">Archives</h2>
+  
+  <div class="archiveslist archive-float clearfix">
+   <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">Feb 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">Jan 2015</a><span class="archive-list-count">1</span></li></ul>
+ </div>
+  
+</div>
+<div id="main" class="archive-part clearfix">
+  <div id="archive-page">
 
-            
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/02/02/postName/" title="just����" itemprop="url">
+  
 
-        
-    </ul>
-</nav>
-            </div>
-        </div>
-    </div>
+    <time datetime="2015-02-02T01:17:08.000Z" itemprop="datePublished">Feb 2 2015</time>
+
+
+    <h1 itemprop="name">just����</h1>
+
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/01/30/hello-world/" title="Hello World" itemprop="url">
+  
+
+    <time datetime="2015-01-30T05:58:33.000Z" itemprop="datePublished">Jan 30 2015</time>
+
+
+    <h1 itemprop="name">Hello World</h1>
+
+  </a>
+</section>
+
+
+  </div>
 </div>
 
-    </header>
-    <div id="content-wrapper">
-        <div class="container-center">
-        
-
-<h2 class="page-sub-title archive-title">你当前所在的位置：Archives</h2>
-
-
-    
-        <article>
-    <div class="row">
-        <div class="col-2 date-tags">
-            <div class="date-row">
-                <time datetime="2015-02-02T01:17:08.000Z">Feb 2 2015</time>
-            </div>
-            
-        </div>
-        <div class="col-10">
-            <div class="article-title simple-article-title">
-                
-    
-        <h1><a href="/2015/02/02/postName/">just����</a></h1>
-    
-
-            </div>
-            
-        </div>
-    </div>
-    <div class="split-line"></div>
-</article>
-
-    
-        <article>
-    <div class="row">
-        <div class="col-2 date-tags">
-            <div class="date-row">
-                <time datetime="2015-01-30T05:58:33.000Z">Jan 30 2015</time>
-            </div>
-            
-        </div>
-        <div class="col-10">
-            <div class="article-title simple-article-title">
-                
-    
-        <h1><a href="/2015/01/30/hello-world/">Hello World</a></h1>
-    
-
-            </div>
-            
-        </div>
-    </div>
-    <div class="split-line"></div>
-</article>
-
-    
-  <nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
-
-        </div>
-    </div>
-    <footer id="page-footer"><div class="footer-content">
-    <div class="container-center">
-        <div class="footer-text pull-left">
-            <div class="copyright">
-                
-                Copyright &copy; 2015 <a href="/">John Doe</a>
-                
-            </div>
-            <div class="theme-copyright">
-                <span>Blog powered by <a href="http://zespia.tw/hexo/zh-CN/">hexo</a></span>
-                Theme <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a> desgined by <strong>Nix</strong>
-            </div>
-        </div>
-        <div class="social-group pull-right">
-            
-            <a href="https://github.com/raytaylorlin" target="_blank" title="github"><i class="icon-github"></i></a>
-            
-            
-            <a href="http://weibo.com/1956184117" target="_blank" title="新浪微博"><i class="icon-weibo"></i></a>
-            
-            
-            <a href="http://www.renren.com/309069699" target="_blank" title="人人网"><i class="icon-renren"></i></a>
-            
-            
-            <a href="https://plus.google.com/113216251417550089742?rel=author" target="_blank" title="Google+"><i class="icon-google-plus-sign"></i></a>
-            
-        </div>
-        <div class="clearfix"></div>
-    </div>
+      </div>
+      <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Larry Page in Google. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2015 
+		
+		<a href="http://yoursite.com/about" target="_blank" title="John Doe">John Doe</a>
+		
+		</p>
 </div>
 </footer>
-    
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
 
-    ga('create', 'UA-43460643-1', 'raytaylorlin.com');
-    ga('send', 'pageview');
-
-</script>
-
-
-<script src="/js/prettify.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $("pre").addClass("prettyprint");
-        prettyPrint();
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
 });
 </script>
-<script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 
-<script>
-    (function($) {
-        //当内容区内容不够长时，设置内容区域的高度使footer沉底
-        var resizeContentWrapper = function() {
-            //HACK: 用延时的方法使计算高度时候更加准确，会有一闪的情况
-            setTimeout(function() {
-                var contentHeight = Math.floor($('#content-wrapper .container-center').height()),
-                headerHeight = Math.floor($('#page-header').height()),
-                footerHeight = Math.floor($('#page-footer').height()),
-                minHeight = Math.floor($(window).height() - headerHeight - footerHeight);
-                if(contentHeight < minHeight) {
-                    $('#content-wrapper').css({height: minHeight});                    
-                } else {
-                    $('#content-wrapper').css({height: 'auto'});
-                }
-            },500);
-        };
 
-        //响应式侧边栏
-        var initJPanelMenu = function() {
-            var jPM = $.jPanelMenu({
-                menu: '#jPanelMenu-menu-side',
-                duration: 500
-            });
-            jPM.on();
-        };
 
-        //初始化目录按钮事件绑定
-        var initCategory = function() {
-            function showMainMenu() {
-                var $jPanelMenu = $('#jPanelMenu-menu');
-                $jPanelMenu.find('ul.category-menu').hide();
-                $jPanelMenu.find('ul.main-menu').fadeIn();
-            }
 
-            function showCategoryMenu() {
-                var $jPanelMenu = $('#jPanelMenu-menu');
-                $jPanelMenu.find('ul.main-menu').hide();
-                $jPanelMenu.find('ul.category-menu').fadeIn();
-            }
 
-            $('.menu-category').click(function() {
-                var jPM = $.jPanelMenu({
-                    duration: 500,
-                    beforeOpen: function() {
-                        showCategoryMenu();
-                    },
-                    afterClose: function() {
-                        showMainMenu();
-                    }
-                });
-                if(jPM.isOpen()) {
-                    showCategoryMenu();
-                } else {
-                    jPM.open();
-                }
-            });
 
-            $('.category-menu').on('click', '.btn-back', function() {
-                showMainMenu();
-            });
-        };
 
-        $(document).ready(resizeContentWrapper);
-        $(document).ready(initJPanelMenu);
-        $(document).ready(initCategory);
-        
-        $(window).resize(resizeContentWrapper);
-    })(jQuery);
-</script>
-</body>
-</html>
+
+
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+    </body>
+   </html>
