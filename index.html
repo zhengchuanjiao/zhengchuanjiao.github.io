@@ -81,6 +81,93 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/02/05/eval-and-JSON/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://zhengchuanjiao.github.io/about" title="zhengchuanjiao" target="_blank" itemprop="author">zhengchuanjiao</a>
+		
+  <p class="article-time">
+    <time datetime="2015-02-05T07:11:31.000Z" itemprop="datePublished"> Published Feb 5 2015</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>title: eval和JSON<br>date: 2015-02-05 15:11:31</p>
+<h2 id="tags:eval_JSON">tags:eval JSON</h2>
+<h1 id="eval工作原理">eval工作原理</h1>
+<p>eval函数会评估一个给定的含有JavaScript代码的字符串，并且试图去执行包含在字符串里的表达式或者一系列的合法的JavaScript语句。eval函数将把最后一个表达式或者语句所包含的值或引用作为返回值。</p>
+<p>eg:</p>
+<p>eval评估javascript表达式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> bar = <span class="string">"bar"</span>;</div><div class="line"><span class="keyword">var</span> footbar = <span class="built_in">eval</span>(<span class="string">'"foot"+bar'</span>);</div><div class="line">alert(footbar);<span class="comment">//结果：footbar</span></div></pre></td></tr></table></figure>
+
+<p>eval评估javascript语句</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> bar = <span class="string">"bar"</span>;</div><div class="line"><span class="keyword">var</span> footbar = <span class="built_in">eval</span>(<span class="keyword">if</span>(bar==<span class="string">"bar"</span>){bar=<span class="string">"foot-bar"</span>;} <span class="keyword">else</span> {bar=<span class="string">"bar-foo"</span>;});</div><div class="line">alert(footbar);<span class="comment">//结果：foot-bar</span></div></pre></td></tr></table></figure>
+
+<h1 id="JSON格式">JSON格式</h1>
+<p>JSON的格式是由大括号和由冒号（：）构成的名值对所组成的。注意JSON格式与对象字面量的区别：JSON的名字部分严格用引号+名字来表示。</p>
+<h5 id="对象字面量">对象字面量</h5>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">var</span> objectSet={</div><div class="line">        name:<span class="string">"jack"</span>,</div><div class="line">        age:<span class="string">"25"</span>,</div><div class="line">        sayName:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">        }</div><div class="line">};</div></pre></td></tr></table></figure>
+
+<h6 id="JSON对象">JSON对象</h6>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jsonSet={</div><div class="line">  <span class="string">"name"</span>:<span class="string">"jack"</span>,</div><div class="line">  <span class="string">"age"</span>:<span class="string">"24"</span>,</div><div class="line">  <span class="string">"blogrolls"</span>: [</div><div class="line">      {</div><div class="line">        <span class="string">"title"</span>:<span class="string">"zhengchuanjiao'blog"</span>,</div><div class="line">        <span class="string">"link"</span>:<span class="string">"zhengchuanjiao.githug.io"</span></div><div class="line">      },</div><div class="line">      {</div><div class="line">        <span class="string">"title"</span>:<span class="string">"zhengchuanjiao'blog"</span>,</div><div class="line">        <span class="string">"link"</span>:<span class="string">"zhengchuanjiao.githug.io"</span>  </div><div class="line">      }</div><div class="line">    ]</div><div class="line">};</div></pre></td></tr></table></figure>
+
+<h3 id="eval和JSON">eval和JSON</h3>
+<p>由于Ajax的兴起，JSON这种轻量级的数据格式作为客户端与服务器之间的传输格式逐渐地流行起来，进而出现的问题是如何将服务器端构建好的JSON数据转化为可用的JavaScript对象。利用eval函数无疑是一种简单而直接的方法。在转化的时候需要将JSON字符串的外面包装一层圆括号：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jsonObject = <span class="built_in">eval</span>(<span class="string">"("</span>+jsonFormat+<span class="string">")"</span>);</div></pre></td></tr></table></figure>
+
+<h5 id="为什么要加括号">为什么要加括号</h5>
+<p>加上圆括号的目的是迫使eval函数在评估JavaScript代码的时候强制将括号内的表达式（expression）转化为对象，而不是作为语句（statement）来执行。举一个例子，例如对象字面量{}，如若不加外层的括号，那么eval会将大括号识别为JavaScript代码块的开始和结束标记，那么{}将会被认为是执行了一句空语句。所以下面两个执行结果是不同的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(<span class="built_in">eval</span>(<span class="string">"{}"</span>))<span class="comment">// return undefined;</span></div><div class="line">alert(<span class="built_in">eval</span>(<span class="string">"({})"</span>))<span class="comment">//return [Object Object]</span></div></pre></td></tr></table></figure>
+
+<h5 id="JSON格式的名字部分为什么要加引号？">JSON格式的名字部分为什么要加引号？</h5>
+<p>因为eval函数会将{foo:”bar”}解释成合法的JavaScript语句，而非表达式。但是人们往往想要的是让eval将这段代码解释成一个对象。所以JSON格式会强制你去在名字的外侧加上引号再结合圆括号，这样eval就不会错误的将JSON解释成代码块。</p>
+<p>eg:</p>
+<p>eval错误解析语义 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alert(<span class="built_in">eval</span>(<span class="string">'{name:"jack"}'</span>));<span class="comment">//return jack</span></div></pre></td></tr></table></figure>
+
+<p>eval正确解析JSON </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alert(<span class="built_in">eval</span>(<span class="string">'({"name":"jack"})'</span>))<span class="comment">//return [Object Object]</span></div></pre></td></tr></table></figure>
+
+<h3 id="结论">结论</h3>
+<p>结合eval和JSON将javascript数据传递和对象转化，严格按照格式：<br>eval(“(“+jsonFormat+”)”)</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/02/03/hexo-blog/" title="hexo你的博客" itemprop="url">hexo你的博客</a>
   </h1>
   <p class="article-author">By
