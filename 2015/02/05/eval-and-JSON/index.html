@@ -4,44 +4,39 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>zhengchuanjiao&#39;s blog</title>
+    <title>eval和JSON | zhengchuanjiao&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zhengchuanjiao">
     
-    <meta name="description" content="title: eval和JSONdate: 2015-02-05 15:11:31
-tags:eval JSON
-eval工作原理
-eval函数会评估一个给定的含有JavaScript代码的字符串，并且试图去执行包含在字符串里的表达式或者一系列的合法的JavaScript语句。eval函数将把最后一">
-    
-    
-    <meta name="description" content="title: eval和JSONdate: 2015-02-05 15:11:31
-tags:eval JSON
-eval工作原理
+    <meta name="description" content="eval工作原理
 eval函数会评估一个给定的含有JavaScript代码的字符串，并且试图去执行包含在字符串里的表达式或者一系列的合法的JavaScript语句。eval函数将把最后一个表达式或者语句所包含的值或引用作为返回值。
 eg:
 eval评估javascript表达式
-123">
+123var bar">
+    
+    
+    <meta name="description" content="eval工作原理
+eval函数会评估一个给定的含有JavaScript代码的字符串，并且试图去执行包含在字符串里的表达式或者一系列的合法的JavaScript语句。eval函数将把最后一个表达式或者语句所包含的值或引用作为返回值。
+eg:
+eval评估javascript表达式
+123var bar = 'bar';var footbar = eval(''foot'+bar');alert(fo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="zhengchuanjiao's blog">
+<meta property="og:title" content="eval和JSON">
 <meta property="og:url" content="http://zhengchuanjiao.github.io/2015/02/05/eval-and-JSON/">
 <meta property="og:site_name" content="zhengchuanjiao's blog">
-<meta property="og:description" content="title: eval和JSONdate: 2015-02-05 15:11:31
-tags:eval JSON
-eval工作原理
+<meta property="og:description" content="eval工作原理
 eval函数会评估一个给定的含有JavaScript代码的字符串，并且试图去执行包含在字符串里的表达式或者一系列的合法的JavaScript语句。eval函数将把最后一个表达式或者语句所包含的值或引用作为返回值。
 eg:
 eval评估javascript表达式
-123">
+123var bar = 'bar';var footbar = eval(''foot'+bar');alert(fo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhengchuanjiao's blog">
-<meta name="twitter:description" content="title: eval和JSONdate: 2015-02-05 15:11:31
-tags:eval JSON
-eval工作原理
+<meta name="twitter:title" content="eval和JSON">
+<meta name="twitter:description" content="eval工作原理
 eval函数会评估一个给定的含有JavaScript代码的字符串，并且试图去执行包含在字符串里的表达式或者一系列的合法的JavaScript语句。eval函数将把最后一个表达式或者语句所包含的值或引用作为返回值。
 eg:
 eval评估javascript表达式
-123">
+123var bar = 'bar';var footbar = eval(''foot'+bar');alert(fo">
 
 
     
@@ -102,7 +97,7 @@ eval评估javascript表达式
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/02/05/eval-and-JSON/" title="" itemprop="url"></a>
+      <a href="/2015/02/05/eval-and-JSON/" title="eval和JSON" itemprop="url">eval和JSON</a>
   </h1>
   <p class="article-author">By
        
@@ -118,13 +113,11 @@ eval评估javascript表达式
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags:eval_JSON"><span class="toc-number">1.</span> <span class="toc-text">tags:eval JSON</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#eval工作原理"><span class="toc-number"></span> <span class="toc-text">eval工作原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSON格式"><span class="toc-number"></span> <span class="toc-text">JSON格式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#对象字面量"><span class="toc-number">0.0.0.1.</span> <span class="toc-text">对象字面量</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#JSON对象"><span class="toc-number">0.0.0.1.1.</span> <span class="toc-text">JSON对象</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eval和JSON"><span class="toc-number">0.1.</span> <span class="toc-text">eval和JSON</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#为什么要加括号"><span class="toc-number">0.1.0.1.</span> <span class="toc-text">为什么要加括号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JSON格式的名字部分为什么要加引号？"><span class="toc-number">0.1.0.2.</span> <span class="toc-text">JSON格式的名字部分为什么要加引号？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结论"><span class="toc-number">0.2.</span> <span class="toc-text">结论</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#eval工作原理"><span class="toc-number">1.</span> <span class="toc-text">eval工作原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSON格式"><span class="toc-number">2.</span> <span class="toc-text">JSON格式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#对象字面量"><span class="toc-number">2.0.0.0.1.</span> <span class="toc-text">对象字面量</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#JSON对象"><span class="toc-number">2.0.0.0.1.1.</span> <span class="toc-text">JSON对象</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eval和JSON"><span class="toc-number">2.0.1.</span> <span class="toc-text">eval和JSON</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#为什么要加括号"><span class="toc-number">2.0.1.0.1.</span> <span class="toc-text">为什么要加括号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JSON格式的名字部分为什么要加引号？"><span class="toc-number">2.0.1.0.2.</span> <span class="toc-text">JSON格式的名字部分为什么要加引号？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结论"><span class="toc-number">2.0.2.</span> <span class="toc-text">结论</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<p>title: eval和JSON<br>date: 2015-02-05 15:11:31</p>
-<h2 id="tags:eval_JSON">tags:eval JSON</h2>
-<h1 id="eval工作原理">eval工作原理</h1>
+		<h1 id="eval工作原理">eval工作原理</h1>
 <p>eval函数会评估一个给定的含有JavaScript代码的字符串，并且试图去执行包含在字符串里的表达式或者一系列的合法的JavaScript语句。eval函数将把最后一个表达式或者语句所包含的值或引用作为返回值。</p>
 <p>eg:</p>
 <p>eval评估javascript表达式</p>
@@ -166,13 +159,18 @@ eval评估javascript表达式
 <div class="article-catetags">
 
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/eval-JSON/">eval JSON</a>
+  </div>
+
 </div>
 
 
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://zhengchuanjiao.github.io/2015/02/05/eval-and-JSON/" data-title="zhengchuanjiao&#39;s blog" data-tsina="e.g. 2176287895  Your weibo ID,It will be used in share button." class="share clearfix">
+	  <div data-url="http://zhengchuanjiao.github.io/2015/02/05/eval-and-JSON/" data-title="eval和JSON | zhengchuanjiao&#39;s blog" data-tsina="e.g. 2176287895  Your weibo ID,It will be used in share button." class="share clearfix">
 	  </div>
 	
 	</div>
@@ -204,7 +202,7 @@ eval评估javascript表达式
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags:eval_JSON"><span class="toc-number">1.</span> <span class="toc-text">tags:eval JSON</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#eval工作原理"><span class="toc-number"></span> <span class="toc-text">eval工作原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSON格式"><span class="toc-number"></span> <span class="toc-text">JSON格式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#对象字面量"><span class="toc-number">0.0.0.1.</span> <span class="toc-text">对象字面量</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#JSON对象"><span class="toc-number">0.0.0.1.1.</span> <span class="toc-text">JSON对象</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eval和JSON"><span class="toc-number">0.1.</span> <span class="toc-text">eval和JSON</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#为什么要加括号"><span class="toc-number">0.1.0.1.</span> <span class="toc-text">为什么要加括号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JSON格式的名字部分为什么要加引号？"><span class="toc-number">0.1.0.2.</span> <span class="toc-text">JSON格式的名字部分为什么要加引号？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结论"><span class="toc-number">0.2.</span> <span class="toc-text">结论</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#eval工作原理"><span class="toc-number">1.</span> <span class="toc-text">eval工作原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSON格式"><span class="toc-number">2.</span> <span class="toc-text">JSON格式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#对象字面量"><span class="toc-number">2.0.0.0.1.</span> <span class="toc-text">对象字面量</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#JSON对象"><span class="toc-number">2.0.0.0.1.1.</span> <span class="toc-text">JSON对象</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eval和JSON"><span class="toc-number">2.0.1.</span> <span class="toc-text">eval和JSON</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#为什么要加括号"><span class="toc-number">2.0.1.0.1.</span> <span class="toc-text">为什么要加括号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JSON格式的名字部分为什么要加引号？"><span class="toc-number">2.0.1.0.2.</span> <span class="toc-text">JSON格式的名字部分为什么要加引号？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结论"><span class="toc-number">2.0.2.</span> <span class="toc-text">结论</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -229,6 +227,8 @@ eval评估javascript表达式
 		<ul class="clearfix">
 		
 			<li><a href="/tags/hexo-博客/" title="hexo 博客">hexo 博客<sup>1</sup></a></li>
+		
+			<li><a href="/tags/eval-JSON/" title="eval JSON">eval JSON<sup>1</sup></a></li>
 		
 		</ul>
 </div>
