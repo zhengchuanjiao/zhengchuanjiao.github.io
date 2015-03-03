@@ -81,6 +81,77 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/03/03/原型prototype/" title="原型prototype" itemprop="url">原型prototype</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://zhengchuanjiao.github.io/about" title="zhengchuanjiao" target="_blank" itemprop="author">zhengchuanjiao</a>
+		
+  <p class="article-time">
+    <time datetime="2015-03-03T09:24:31.000Z" itemprop="datePublished"> Published Mar 3 2015</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>设想创建人，给他赋值名字和性别</p>
+<h3 id="工厂方式构造对象">工厂方式构造对象</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">creatPerson</span><span class="params">(name,sex)</span></span>{</div><div class="line">   	<span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">	obj.name=name;</div><div class="line">	obj.sex=sex;</div><div class="line">	obj.showName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">		alert(<span class="string">"我的名字是:"</span>+name);</div><div class="line">	}</div><div class="line">	obj.showSex = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">		alert(<span class="string">"我是:"</span>+sex+<span class="string">"的"</span>);</div><div class="line">	}</div><div class="line">	<span class="keyword">return</span> obj;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">var</span> person1 = creatPerson(<span class="string">"tom"</span>,<span class="string">"男"</span>);</div><div class="line"><span class="keyword">var</span> person2 = creatPerson(<span class="string">"lucy"</span>,<span class="string">"女"</span>);</div><div class="line"></div><div class="line">person1.showName();    <span class="comment">//我的名字是：tom</span></div><div class="line">person1.showSex();    <span class="comment">//我是：男的</span></div><div class="line">person2.showName();   <span class="comment">//我的名字是：lucy</span></div><div class="line">person2.showSex();    <span class="comment">//我是：女的</span></div><div class="line">alert(person1.showName == person2.showName);  <span class="comment">//false</span></div></pre></td></tr></table></figure>
+
+<p>但是，工厂方式存在一些问题，1、我们一般创建一个对象是通过new这个关键字创建的，比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div></pre></td></tr></table></figure>
+
+<p>而我们的工厂方式创建对象没有new，看着总是怪怪的。2、person1和person2的showName方法不一样，按理说都是同一个工厂（creatPerson）里的同一个方法，应该是一样的，但是事实证明这种构造对象的方法是不一样的，浪费系统资源。</p>
+<h3 id="加new">加new</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">creatPerson</span><span class="params">(name,sex)</span></span>{</div><div class="line">   	<span class="keyword">this</span>.name=name;</div><div class="line">	<span class="keyword">this</span>.sex=sex;</div><div class="line">	<span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">		alert(<span class="string">"我的名字是:"</span>+<span class="keyword">this</span>.name);</div><div class="line">	}</div><div class="line">	<span class="keyword">this</span>.showSex = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">		alert(<span class="string">"我是:"</span>+<span class="keyword">this</span>.sex+<span class="string">"的"</span>);</div><div class="line">	}</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> creatPerson(<span class="string">"tom"</span>,<span class="string">"男"</span>);</div><div class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> creatPerson(<span class="string">"lucy"</span>,<span class="string">"女"</span>);</div><div class="line"></div><div class="line">person1.showName();     <span class="comment">//我的名字是：tom</span></div><div class="line">person1.showSex();      <span class="comment">//我是：男的</span></div><div class="line">person2.showName();     <span class="comment">//我的名字是：lucy</span></div><div class="line">person2.showSex();      <span class="comment">//我是：女的</span></div><div class="line">alert(person1.showName == person2.showName);   <span class="comment">//false</span></div></pre></td></tr></table></figure>
+
+<p>这样看来，有了new了创建对象的方法正常多了，但第2个问题依然没有解决；</p>
+<h3 id="混合法（原型）">混合法（原型）</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">CreatPerson</span><span class="params">(name,sex)</span></span>{</div><div class="line">   	<span class="keyword">this</span>.name=name;</div><div class="line">	<span class="keyword">this</span>.sex=sex;</div><div class="line">}</div><div class="line"></div><div class="line">CreatPerson.prototype.showName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	alert(<span class="string">"我的名字是:"</span>+<span class="keyword">this</span>.name);</div><div class="line">}</div><div class="line"></div><div class="line">CreatPerson.prototype.showSex = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	alert(<span class="string">"我是:"</span>+<span class="keyword">this</span>.sex+<span class="string">"的"</span>);</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> CreatPerson(<span class="string">"tom"</span>,<span class="string">"男"</span>);</div><div class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> CreatPerson(<span class="string">"lucy"</span>,<span class="string">"女"</span>);</div><div class="line"></div><div class="line">person1.showName();     <span class="comment">//我的名字是：tom</span></div><div class="line">person1.showSex();      <span class="comment">//我是：男的</span></div><div class="line">person2.showName();     <span class="comment">//我的名字是：lucy</span></div><div class="line">person2.showSex();      <span class="comment">//我是：女的</span></div><div class="line">alert(person1.showName == person2.showName);   <span class="comment">//true</span></div></pre></td></tr></table></figure>
+
+<p>通过原型就解决了上面的第2个问题了。</p>
+<p>原型的一个重要的功能就是可以扩展系统对象。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/prototype/">prototype</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/02/05/eval-and-JSON/" title="eval和JSON" itemprop="url">eval和JSON</a>
   </h1>
   <p class="article-author">By
@@ -107,6 +178,7 @@
 <p>JSON的格式是由大括号和由冒号（：）构成的名值对所组成的。注意JSON格式与对象字面量的区别：JSON的名字部分严格用引号+名字来表示。</p>
 <h5 id="对象字面量">对象字面量</h5>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">var</span> objectSet={</div><div class="line">        name:<span class="string">"jack"</span>,</div><div class="line">        age:<span class="string">"25"</span>,</div><div class="line">        sayName:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">        }</div><div class="line">};</div></pre></td></tr></table></figure>
+
 
 <h6 id="JSON对象">JSON对象</h6>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jsonSet={</div><div class="line">  <span class="string">"name"</span>:<span class="string">"jack"</span>,</div><div class="line">  <span class="string">"age"</span>:<span class="string">"24"</span>,</div><div class="line">  <span class="string">"blogrolls"</span>: [</div><div class="line">      {</div><div class="line">        <span class="string">"title"</span>:<span class="string">"zhengchuanjiao'blog"</span>,</div><div class="line">        <span class="string">"link"</span>:<span class="string">"zhengchuanjiao.githug.io"</span></div><div class="line">      },</div><div class="line">      {</div><div class="line">        <span class="string">"title"</span>:<span class="string">"zhengchuanjiao'blog"</span>,</div><div class="line">        <span class="string">"link"</span>:<span class="string">"zhengchuanjiao.githug.io"</span>  </div><div class="line">      }</div><div class="line">    ]</div><div class="line">};</div></pre></td></tr></table></figure>
@@ -433,6 +505,8 @@
 <div class="tagslist">
 	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
+		
+			<li><a href="/tags/prototype/" title="prototype">prototype<sup>1</sup></a></li>
 		
 			<li><a href="/tags/hexo-博客/" title="hexo 博客">hexo 博客<sup>1</sup></a></li>
 		
