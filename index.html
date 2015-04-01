@@ -81,6 +81,82 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/04/01/互换位子的拖放/" title="互换位置的拖放" itemprop="url">互换位置的拖放</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://zhengchuanjiao.github.io/about" title="zhengchuanjiao" target="_blank" itemprop="author">zhengchuanjiao</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-01T03:28:31.000Z" itemprop="datePublished"> Published Apr 1 2015</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>有同事叫我帮忙写一个拖拽的例子，html5教程里的拖放都是将一个对象放在另一个空的位置里，同事要我做的是将一个对象放在另一个本来有对象的位置里，拖放过去的同时两个对象互换位子，其实原理都是一样一样的~~</p>
+<p>首先，先说说兼容性：IE9、Firefox、Opera 12、Chrome 以及 Safari 5 支持拖放</p>
+<p>接下来，聊聊程序的步骤</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line"><span class="id">#drag1</span><span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">50px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;</div><div class="line">	<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">10px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">10px</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="id">#drag2</span><span class="rules">{</span></div><div class="line">	<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">50px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;</div><div class="line">	<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">60px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">10px</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="id">#drag3</span><span class="rules">{</span></div><div class="line">	<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">50px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;</div><div class="line">	<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">110px</span></span></span>;</div><div class="line">	<span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">10px</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="tag">&lt;/<span class="title">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">allowDrop</span><span class="params">(ev)</span></span></div><div class="line">{</div><div class="line">    ev.preventDefault();</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">drag</span><span class="params">(ev)</span></span></div><div class="line">{</div><div class="line">	ev.dataTransfer.setData(<span class="string">"div"</span>,ev.target.id);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">drop</span><span class="params">(ev)</span></span></div><div class="line">{</div><div class="line">	ev.preventDefault();</div><div class="line">	<span class="keyword">var</span> data=ev.dataTransfer.getData(<span class="string">"div"</span>);</div><div class="line">	<span class="keyword">if</span>(ev.target==<span class="literal">null</span>){	</div><div class="line">		ev.target.appendChild(<span class="built_in">document</span>.getElementById(data));</div><div class="line">	}<span class="keyword">else</span>{</div><div class="line">		ev.dataTransfer.mozSourceNode.id=ev.target.id;</div><div class="line">		ev.target.id=data;</div><div class="line">	}</div><div class="line">	</div><div class="line">}</div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"width: 100px;height: 150px;"</span> <span class="attribute">id</span>=<span class="value">"div6"</span> <span class="attribute">ondrop</span>=<span class="value">"drop(event)"</span> <span class="attribute">ondragover</span>=<span class="value">"allowDrop(event)"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"background-color: red;"</span>  <span class="attribute">draggable</span>=<span class="value">"true"</span> <span class="attribute">ondragstart</span>=<span class="value">"drag(event)"</span> <span class="attribute">id</span>=<span class="value">"drag1"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"background-color: yellow;"</span>  <span class="attribute">draggable</span>=<span class="value">"true"</span> <span class="attribute">ondragstart</span>=<span class="value">"drag(event)"</span> <span class="attribute">id</span>=<span class="value">"drag2"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"background-color: green;"</span>  <span class="attribute">draggable</span>=<span class="value">"true"</span> <span class="attribute">ondragstart</span>=<span class="value">"drag(event)"</span> <span class="attribute">id</span>=<span class="value">"drag3"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>draggable————设置元素可拖放</p>
+<p>这里红黄绿三个元素都要拖放，所以，三个元素的draggable都设置为ture。</p>
+<p>ondragstart———拖什么</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">drag</span><span class="params">(ev)</span></span></div><div class="line">{</div><div class="line">    ev.dataTransfer.setData(<span class="string">"div"</span>,ev.target.id);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>drag（event）里设置的拖放元素的内容，从方法setDate名字就可以看出来是设置数据的。</p>
+<p>拖得对象准备好后，接下来就要设置放的位置了；刚开始把放的事件也放在三个可拖动的div上，突然发现将三个div外面在加一层div更简单，于是就将事件放在的div6上，使代码更简洁。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">allowDrop</span><span class="params">(ev)</span></span></div><div class="line">{</div><div class="line">    ev.preventDefault();</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>ev.preventDefault()———默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">drop</span><span class="params">(ev)</span></span></div><div class="line">{</div><div class="line">    ev.preventDefault();</div><div class="line">	<span class="keyword">var</span> data=ev.dataTransfer.getData(<span class="string">"div"</span>);</div><div class="line">	<span class="keyword">if</span>(ev.target==<span class="literal">null</span>){	</div><div class="line">		ev.target.appendChild(<span class="built_in">document</span>.getElementById(data));</div><div class="line">	}<span class="keyword">else</span>{</div><div class="line">		ev.dataTransfer.mozSourceNode.id=ev.target.id;</div><div class="line">		ev.target.id=data;</div><div class="line">	}</div><div class="line">	</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>在 drop函数中，data就是拖的对象的id；</p>
+<p>ev.target就是放的目标，这个里面很明显target不为空，那么就互换位子，通过打断点可以知道ev.dataTransfer里有拖的对象的全部信息。</p>
+<p><strong>总结：</strong>通过id控制位置，在拖拽的过程中互换id。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/总结/">总结</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="http://zhengchuanjiao.github.io/2015/04/01/互换位子的拖放/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/01/互换位子的拖放/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/03/26/伪类和伪元素区分/" title="伪类和伪元素区分" itemprop="url">伪类和伪元素区分</a>
   </h1>
   <p class="article-author">By
@@ -744,75 +820,10 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/01/30/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://zhengchuanjiao.github.io/about" title="zhengchuanjiao" target="_blank" itemprop="author">zhengchuanjiao</a>
-		
-  <p class="article-time">
-    <time datetime="2015-01-30T05:58:33.000Z" itemprop="datePublished"> Published Jan 30 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="http://zhengchuanjiao.github.io/2015/01/30/hello-world/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/01/30/hello-world/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
+  <nav id="page-nav" class="clearfix">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+  </nav>
 
 </div>
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
@@ -839,7 +850,7 @@
 		
 			<li><a href="/tags/备注/" title="备注">备注<sup>4</sup></a></li>
 		
-			<li><a href="/tags/总结/" title="总结">总结<sup>1</sup></a></li>
+			<li><a href="/tags/总结/" title="总结">总结<sup>2</sup></a></li>
 		
 			<li><a href="/tags/prototype/" title="prototype">prototype<sup>1</sup></a></li>
 		
