@@ -81,6 +81,69 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/04/11/关闭浏览器自动识别数字为电话号码/" title="关闭Android/iPhone浏览器自动识别数字为电话号码" itemprop="url">关闭Android/iPhone浏览器自动识别数字为电话号码</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://zhengchuanjiao.github.io/about" title="zhengchuanjiao" target="_blank" itemprop="author">zhengchuanjiao</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-11T02:56:31.000Z" itemprop="datePublished"> Published Apr 11 2015</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>最近做一个微信支付的需求，界面上有电话、日期，还有金额等数字，当有数字出现的时候，<br>浏览器上会出现一个很奇怪的现象，有些数字会变成一个链接，颜色变成蓝色，就算你单独给它设置<br>颜色，强制变成需求所需要的颜色也没有效果，并且点击后，会问你是否想要拨打该号码，这就是<br>Android/iPhone浏览器自动识别数字为电话号码。</p>
+<p>那么问题就来了，这些有的并不是电话，不需要拨打功能，并且数字有自己的颜色需求；关闭<br>Android/iPhone浏览器自动识别数字为电话号码需要添加一个设置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=<span class="string">"format-detection"</span> content=<span class="string">"telephone=no"</span> /&gt;</div></pre></td></tr></table></figure>
+
+<p>如果你关闭自动识别后，又希望某些电话号码能够链接到iPhone的拨号功能，那么可以通过这样来声明电话链接：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a href=<span class="string">"tel:13800138000"</span>&gt;<span class="number">13800138000</span>&lt;<span class="regexp">/a&gt;</span></div></pre></td></tr></table></figure>
+
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/总结/">总结</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="http://zhengchuanjiao.github.io/2015/04/11/关闭浏览器自动识别数字为电话号码/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/11/关闭浏览器自动识别数字为电话号码/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/04/01/互换位子的拖放/" title="互换位置的拖放" itemprop="url">互换位置的拖放</a>
   </h1>
   <p class="article-author">By
@@ -768,58 +831,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/02/02/test/" title="just尝试" itemprop="url">just尝试</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://zhengchuanjiao.github.io/about" title="zhengchuanjiao" target="_blank" itemprop="author">zhengchuanjiao</a>
-		
-  <p class="article-time">
-    <time datetime="2015-02-02T07:17:04.000Z" itemprop="datePublished"> Published Feb 2 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><a href="http://ibruce.info/2013/11/26/markdown/" title="markdown简明语法" target="_blank" rel="external">markdown简明语法</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="http://zhengchuanjiao.github.io/2015/02/02/test/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/02/02/test/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -850,7 +861,7 @@
 		
 			<li><a href="/tags/备注/" title="备注">备注<sup>4</sup></a></li>
 		
-			<li><a href="/tags/总结/" title="总结">总结<sup>2</sup></a></li>
+			<li><a href="/tags/总结/" title="总结">总结<sup>3</sup></a></li>
 		
 			<li><a href="/tags/prototype/" title="prototype">prototype<sup>1</sup></a></li>
 		
