@@ -120,8 +120,8 @@ JavaScript主要由3部分组成：1、ECMAScript ；2、DOM ； 3、BOM">
 <p>DOM的全拼是document object model 字面意思就是文档对象模型，我理解的就是html，就是将网页变成<br>js可以操作的对象即document，我们平常要想获取html中的某一个元素都是通过document.getElementById等；</p>
 <p>BOM的全拼是browser object model 字面意思是浏览器对象模型，就是将浏览器变成js可操作的对象即window，<br>例如：window.open , window.close , window.location等。</p>
 <h2 id="JavaScript中的typeof">JavaScript中的typeof</h2>
-<p>JavaScript中的数据类型没有java中的数据类型多和分的那么细，这也是JavaScript的弱语言性特点；JavaScript<br>常见的几种数据类型有：number、string、boolean、funtion、object、undefined，其中undefine是我这次学习重新<br>了解到的，以前只是在报错中知道它代表没有定义，但还有一个知识点是我们容易忽略的：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a;</div><div class="line">alert(<span class="keyword">typeof</span>(a));  <span class="comment">//弹出来的是undefine</span></div><div class="line">a=<span class="number">12</span>;</div><div class="line">alert(<span class="keyword">typeof</span>(a));  <span class="comment">//弹出来的是number</span></div></pre></td></tr></table></figure>
+<p>JavaScript中的数据类型没有java中的数据类型多和分的那么细，这也是JavaScript的弱语言性特点；JavaScript<br>常见的几种数据类型有：number、string、boolean、funtion、object、undefined，其中undefined是我这次学习重新<br>了解到的，以前只是在报错中知道它代表没有定义，但还有一个知识点是我们容易忽略的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a;</div><div class="line">alert(<span class="keyword">typeof</span>(a));  <span class="comment">//弹出来的是undefined</span></div><div class="line">a=<span class="number">12</span>;</div><div class="line">alert(<span class="keyword">typeof</span>(a));  <span class="comment">//弹出来的是number</span></div></pre></td></tr></table></figure>
 
 <p>那就说明JavaScript中数据类型的是由保存在变量里的值决定的。<br>```</p>
   
